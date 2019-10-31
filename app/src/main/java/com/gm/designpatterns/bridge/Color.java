@@ -8,6 +8,5 @@ package com.gm.designpatterns.bridge;
  * Company : 北京四维图新科技股份有限公司
  */
 public interface Color {
-
     void coloring();
 }

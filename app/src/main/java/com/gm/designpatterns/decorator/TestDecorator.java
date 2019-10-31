@@ -25,6 +25,7 @@ import java.io.InputStream;
  * Company : 北京四维图新科技股份有限公司
  */
 public class TestDecorator {
+
     public static void main() {
         /**
          *  Starbucks

@@ -16,17 +16,20 @@ public class TestObserver {
         /**
          * JDK Observable被观察者 & Observer观察者
          */
-        NumObservable number = new NumObservable();
-        number.addObserver(new NumObserver());
-        number.setData(1);
-        number.setData(2);
-        number.setData(3);
+        NumObservable observable = new NumObservable();
+        NumObserver observer = new NumObserver();
+        observable.addObserver(observer);
+        observable.setData(1);
+        observable.setData(2);
+        observable.setData(3);
 //        E/gaom: Data has changed to 1
 //        E/gaom: Data has changed to 2
 //        E/gaom: Data has changed to 3
 
         /**
-         * 回调与观察者模式
+         * 监听回调与观察者模式
+         * 网络请求
+         * 自定义适配器
          */
         ClassA classA = new ClassA();
         classA.register(new CallBack() {
@@ -36,11 +39,12 @@ public class TestObserver {
             }
         });
         classA.call();
+
         /**
          * 插一个话题, java无法将一个函数作为参数进行传递,代替是用接口实现
          * lambda(兰布达)表达式看似传递一个匿名方法,实际上只是简化显示
          */
-        classA.register(() -> System.out.println("回调函数被调用"));
+        classA.register(() -> System.out.println("回调函数被调用") );
 
 
         //其他语言 python举例 函数作为参数传递

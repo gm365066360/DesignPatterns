@@ -29,9 +29,8 @@ public class TestIterator {
     }
 
     /**
-     * 用一个例子来回顾一下java中的循环语句
      * 谈到迭代器, 大家首先想到的应该是代替循环语句删除数组中数据
-     * -讨论一下循环遍历与迭代器遍历对于删除数据的影响情况
+     * -我们讨论一下循环遍历与迭代器遍历对于删除数据的影响情况
      **/
     public static void testJavaLoop() {
         /**
@@ -58,6 +57,8 @@ public class TestIterator {
         Log.e("gaom ", "使用for无条件 的结果：" + list0);
         //E/gaom: 使用for无条件 的结果：[a, n]
 
+        //size减少 i在增加 所以会出现隔一个删一个现象
+
         /**
          * foreach  代替for
          */
@@ -65,12 +66,14 @@ public class TestIterator {
         try {
             for (String str : list1) {
                 if ("a".equals(str)) {
+                    //不报黄提示
                     list1.remove(str);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-//            W/System.err: java.util.ConcurrentModificationException 并发修改异常
+//            W/System.err: java.util.ConcurrentModificationException
+//            并发修改异常(不是多线程的那个并发)就是在循环时不能修改数据
             /**
              * @see ArrayList.Itr.next() ConcurrentModificationException 并发修改异常
              */
@@ -95,6 +98,7 @@ public class TestIterator {
                 deleteList.add(list01.get(i));
             }
         }
+
         for (int i = 0; i < deleteList.size(); i++) {
             list01.remove(deleteList.get(i));
         }
@@ -117,7 +121,7 @@ public class TestIterator {
          * Iterator删除
          */
         List<String> list3 = ceateList();
-        Iterator<String> iterator = list3.iterator();
+        Iterator<String> iterator = list3.iterator();//List中的迭代器实现 list.iterator();
         while (iterator.hasNext()) {
             if ("a".equals(iterator.next())) {
                 iterator.remove();
@@ -127,6 +131,7 @@ public class TestIterator {
         //E/gaom: 使用迭代 的结果：[b, n]
 
         /**
+         * ## !! 注意
          * Iterator 里使用 list.remove()
          */
         List<String> list4 = ceateList();
@@ -140,6 +145,7 @@ public class TestIterator {
             }
         } catch (Exception e) {
             e.printStackTrace();
+//            W/System.err: java.util.ConcurrentModificationException
         }
 
     }

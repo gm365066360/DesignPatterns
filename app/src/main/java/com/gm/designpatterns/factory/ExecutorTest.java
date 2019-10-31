@@ -17,6 +17,7 @@ public class ExecutorTest {
     private static Integer num = 1;
     private static boolean exeFlag = true;
 
+    //简单工厂 创建与使用分离
     public static void main() throws InterruptedException {
         //初始化3个 超过3个堵塞
         ExecutorService executorService = Executors.newFixedThreadPool(3);

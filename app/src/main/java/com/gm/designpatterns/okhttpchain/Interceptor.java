@@ -1,4 +1,4 @@
-package com.gm.designpatterns.http;
+package com.gm.designpatterns.okhttpchain;
 
 /**
  * Author gaoming

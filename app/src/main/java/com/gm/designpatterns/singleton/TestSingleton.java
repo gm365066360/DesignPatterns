@@ -23,7 +23,7 @@ public class TestSingleton {
         EarlySingleton.getInstance();
         LayzilySingleton.getInstance();
         DoubleCheckSingleton.getInstance();
-        Singleton.getInstance();
+        StaticInnerClassSingleton.getInstance();
 
 
         /**

@@ -54,6 +54,7 @@ public class Restaurant {
             for (iterator = iteratable[i].createIterator(); iterator.hasNext(); print(next)) {
                 next = (MenuItem) iterator.next();
             }
+
         }
     }
 }

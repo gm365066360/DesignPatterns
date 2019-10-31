@@ -1,4 +1,4 @@
-package com.gm.designpatterns.http;
+package com.gm.designpatterns.okhttpchain;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.gm.designpatterns.http;
+package com.gm.designpatterns.okhttpchain;
 
 import android.util.Log;
 
@@ -20,13 +20,16 @@ public class Test {
         interceptors.add(new RealInterceptor());
         interceptors.add(new RealInterceptor());
         interceptors.add(new RealInterceptor());
+        interceptors.add(new RealInterceptor());
 
         RealChain chain=new RealChain(interceptors,0,request);
         String response = chain.process();
         Log.e("gaom response=",response);
 
         /**
-         * @see okhttp RealCall RealChain Interceptor
+         * @see okhttp3.RealCall
+         * @see okhttp3.internal.http.RealInterceptorChain
+         * @see okhttp3.internal.cache.CacheInterceptor
          */
     }
 }

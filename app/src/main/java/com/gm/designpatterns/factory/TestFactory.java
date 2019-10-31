@@ -4,6 +4,9 @@ import android.util.Log;
 
 import java.util.concurrent.Executors;
 
+import retrofit2.CallAdapter;
+import retrofit2.Converter;
+
 /**
  * Author gaoming
  * Email: gaoming2@autoai.com
@@ -18,8 +21,8 @@ public class TestFactory {
         simpleFactory.produce("A");
 
         //客户要产品A
-        FactoryA mFactoryA = new FactoryA();
-        mFactoryA.produce().showProductName();
+        Factory mFactory = new FactoryA();
+        mFactory.produce().showProductName();
 
         //客户要产品B
         FactoryB mFactoryB = new FactoryB();
@@ -40,6 +43,11 @@ public class TestFactory {
          * @see retrofit2.Retrofit
          * @see retrofit2.Converter
          * @see retrofit2.CallAdapter
+         * @see retrofit2.Retrofit.Builder#addConverterFactory(Converter.Factory)
+         * @see retrofit2.Retrofit.Builder#addCallAdapterFactory(CallAdapter.Factory)
+         *
+         * @see FastJsonConverterFactory
+         * @see RxJava2CallAdapterFactory   RxJava2CallAdapter#adapt()
          */
 
         //为什么用工厂,
